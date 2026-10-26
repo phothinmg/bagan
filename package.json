@@ -1,0 +1,29 @@
+{
+  "name": "bagan",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "lint": "biome check --write src",
+    "fmt": "biome format --write"
+  },
+  "keywords": [],
+  "type": "module",
+  "devDependencies": {
+    "@biomejs/biome": "^2.5.15",
+    "@types/node": "^26.6.5",
+    "susee": "^3.0.0",
+    "typescript": "^7.0.2",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@types/jsdom": "^30.0.0"
+  },
+  "peerDependencies": {
+    "peisar": "^1.1.1"
+  },
+  "dependencies": {
+    "jsdom": "^30.1.3",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  }
+}
