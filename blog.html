@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Building a CSS Grid Layout from Scratch - The Minimalist Dev</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="blog-header">
+      <div class="container">
+        <h1 class="blog-title">The Minimalist Dev</h1>
+      </div>
+    </header>
+
+    <nav class="blog-nav">
+      <div class="container">
+        <a href="index.html">← Back to Home</a>
+        <a href="#">Articles</a>
+        <a href="#">About</a>
+      </div>
+    </nav>
+
+    <div class="container single-article-layout">
+      <main class="blog-content">
+        <!-- Article Header -->
+        <header class="article-header">
+          <span class="post-meta" id="post-meta">Published November 6, 2026</span>
+          <h1 class="entry-title" id="entry-title">Building a CSS Grid Layout from Scratch</h1>
+        </header>
+
+        <!-- Article Body -->
+        <div class="article-body" id="article-body">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin    
+            elementum sem id sodales imperdiet. In at lacus sit amet sem
+            convallis placerat vel ac metus. Mauris rhoncus molestie feugiat.
+            Sed et elementum justo. Siquidem duo parietes de eodem luto obliti
+            sunt.
+          </p>
+
+          <blockquote>
+            "Grid layout is the most powerful layout system available in CSS. It    
+            is a 2-dimensional system, meaning it can handle both columns and
+            rows, unlike Flexbox which is largely a 1-dimensional system."
+            <cite>— CSS Architecture Guide</cite>
+          </blockquote>
+
+          <h3>Why Move Away From Frameworks?</h3>
+          <p>
+            Vestibulum ante ipsum primis in faucibus orci luctus et ultrices    
+            posuere cubilia curae; Aliquam at erat lectus. Mauris non erat
+            convallis, laoreet felis eget, aliquet arcu. Phasellus quis
+            elementum leo. Proin nec scelerisque ex, quis elementum nibh.
+          </p>
+
+          <p>
+            When you strip away the heavy external UI dependencies, your    
+            application rendering speeds skyrocket. The native browser
+            implementation of standard CSS grids is highly optimized.
+          </p>
+        </div>
+
+        <!-- Comments Section -->
+        <section class="comments-section">
+          <h3>Discussion (2)</h3>
+
+          <div class="comment-list">
+            <div class="comment-item">
+              <div class="comment-meta">
+                <span class="comment-author">Sarah Jenkins</span>
+                <span class="comment-date">Nov 6, 2026 at 10:14 AM</span>
+              </div>
+              <div class="comment-content">
+                <p>
+                  This approach completely changed how I think about responsive    
+                  design. Standardizing layout without 50kb of framework
+                  overhead is incredibly liberating.
+                </p>
+              </div>
+            </div>
+
+            <div class="comment-item">
+              <div class="comment-meta">
+                <span class="comment-author">David K.</span>
+                <span class="comment-date">Nov 6, 2026 at 11:30 AM</span>
+              </div>
+              <div class="comment-content">
+                <p>
+                  Great breakdown! Do you have any recommendations for handling    
+                  older browser fallbacks, or do you fully rely on feature
+                  queries now?
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Comment Form -->
+          <form class="comment-form">
+            <h3>Leave a Comment</h3>
+            <div class="form-group">
+              <label for="author-name">Name</label>
+              <input
+                type="text"
+                id="author-name"
+                required
+                placeholder="Your name" />
+            </div>
+            <div class="form-group">
+              <label for="comment-text">Comment</label>
+              <textarea
+                id="comment-text"
+                rows="5"
+                required
+                placeholder="Join the discussion..."></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Post Comment</button>
+          </form>
+        </section>
+      </main>
+    </div>
+    <script src="/reading_time.js"></script>
+
+    <footer class="blog-footer">
+      <p>&copy; 2026 The Minimalist Dev. Powered by simple HTML & CSS.</p>
+    </footer>
+  </body>
+</html>
