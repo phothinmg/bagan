@@ -1,0 +1,16 @@
+---
+layout: default
+---
+
+<div class="container single-article-layout">
+  <main class="blog-content">
+    <header class="article-header">
+      <span class="post-meta" id="post-meta">Published {{ page.published_at | date: "%B %d, %Y" }}</span>
+      <h1 class="entry-title" id="entry-title">{{ page.title }}</h1>
+    </header>
+    <div class="article-body" id="article-body">
+      {{ page.html }}
+    </div>
+  </main>
+</div>
+<script src="{{ '/js/reading_time.js' | relativeUrl}}"></script>

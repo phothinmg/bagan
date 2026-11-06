@@ -1,0 +1,9 @@
+<nav class="blog-nav">
+  <div class="container">
+    {% if site.nav %}
+      {% for nav in site.nav %}
+        <a href="{{ nav.link | relativeUrl }}">{{ nav.text }}</a>
+      {% endfor %}
+    {% endif %}
+  </div>
+</nav>

@@ -6,10 +6,10 @@ import type {
   LayoutsObjects,
   LayoutFunction,
   LayoutsContext,
-} from "./config/types.js";
+} from "../config/types.js";
 import { frontmatter } from "@bagandev/bagan_cache";
-
-type ResolveUrl = (path: string) => string;
+import { relativeUrl, parseJson } from "./plugins.js";
+import type { ResolveUrl } from "../config/types.js";
 
 const resolveLiquidLayout = (input: string) => {
   const fmt = frontmatter(input);
@@ -21,22 +21,6 @@ const resolveLiquidLayout = (input: string) => {
   }
   return result;
 };
-// Liquid Js Plugins
-function relativeUrl(fn: ResolveUrl) {
-  return function (this: Liquid) {
-    this.registerFilter("relativeUrl", (x) => fn(x));
-  };
-}
-
-function parseJson(this: Liquid) {
-  this.registerFilter("parse_json", (value: unknown) => {
-    if (typeof value !== "string") {
-      return value;
-    }
-
-    return JSON.parse(value);
-  });
-}
 
 class BaganLiquid {
   private _liquidOptions: LiquidOptions;

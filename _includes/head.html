@@ -1,0 +1,18 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% assign description = page.description | default: site.description %}
+<meta name="description" content="{{ description }}" />
+{% assign title = site.title %}
+{% if page.title %}
+  {% assign title = page.title | append: ' - ' | append: site.title %}
+{% endif %}
+{% assign ico = "minima.ico" %}
+{% if site.favicon %}
+  {% assign ico = site.favicon %}
+{% endif %}
+<link
+  rel="shortcut icon"
+  href="{{ ico | relativeUrl }}"
+  type="image/x-icon">
+<link rel="stylesheet" href="{{ '/minima.css' | relativeUrl }}">
+<title>{{ title }}</title>

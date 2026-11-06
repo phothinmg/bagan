@@ -15,6 +15,11 @@ const config: SiteConfig = {
       },
     ],
   },
+  outDir: "docs",
+  hosting: {
+    provider: "GithubPages",
+    repo: "bagan",
+  },
 };
 
 export default config;

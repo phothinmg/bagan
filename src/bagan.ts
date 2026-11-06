@@ -4,8 +4,8 @@ import {
   type PageObject,
   type AssetsObject,
 } from "@bagandev/bagan_cache";
-import { BaganLiquid } from "./liquid.js";
-import { loadConfig } from "./config/config.js";
+import { BaganLiquid } from "./liquid/index.js";
+import { loadConfig } from "./config/index.js";
 import type {
   _SiteConfig,
   DataContext,
@@ -27,16 +27,28 @@ class Bagan {
   private _pageObjects = {} as PageObject[];
   private _assetsObjects = {} as AssetsObject[];
   private _layoutNames: string[] = [];
-  _layoutObjects: LayoutsObjects = [];
+  private _layoutObjects: LayoutsObjects = [];
 
   private async config() {
     this._config = await loadConfig();
   }
   private cache() {
     this._cache = new BaganCache(
-      this._config.rootDir,
-      this._config.assetsDir,
-      this._config.options,
+      this._config.site.rootDir,
+      this._config.site.assetsDir,
+      {
+        markdown: { ...(this._config.markdown || {}) },
+        archive: { ...(this._config.archive || {}) },
+        hosting: { ...(this._config.hosting || {}) },
+        themeConfig: { ...(this._config.themeConfig || {}) },
+        ...(this._config.site.theme != null
+          ? { theme: this._config.site.theme }
+          : {}),
+        ...(this._config.outDir != null ? { outDir: this._config.outDir } : {}),
+        ...(this._config.cacheDir != null
+          ? { cacheDir: this._config.cacheDir }
+          : {}),
+      },
     );
     if (this._config.peisarPlugins.length > 0) {
       for (let plugin of this._config.peisarPlugins) {
@@ -59,8 +71,11 @@ class Bagan {
     this._layoutObjects = this._liquid.layouts;
   }
   private async data() {
-    const localDataDir = this._config.dataDir
-      ? path.join(this._config.rootDir as string, this._config.dataDir)
+    const localDataDir = this._config.site.dataDir
+      ? path.join(
+          this._config.site.rootDir as string,
+          this._config.site.dataDir as string,
+        )
       : undefined;
     this._dataCtx = await loadAllData(localDataDir, this._themeDirs.dataDir);
   }

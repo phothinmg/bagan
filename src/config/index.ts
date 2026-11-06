@@ -1,7 +1,19 @@
 import path from "node:path";
 import fs from "node:fs";
-import type { HostingProvider } from "@bagandev/bagan_cache";
-import type { SiteConfig, _SiteConfig } from "./types.js";
+import type {
+  SiteConfig,
+  _SiteConfig,
+  BaganLiquidPlugin,
+  BaganLiquidPluginFactory,
+  LayoutFunction,
+  LayoutsContext,
+  LayoutsObject,
+  LayoutsObjects,
+  DataContext,
+  PageContext,
+  SiteContext,
+  ResolveUrl,
+} from "./types.js";
 import tcolor from "@suseejs/color";
 
 function loadConfigFile() {
@@ -35,26 +47,33 @@ async function loadConfig(): Promise<_SiteConfig> {
     process.exit(1);
   }
   const config = importedConfig.default as SiteConfig;
-  const { site, ...config_rest } = config;
+  const { site, markdown, peisarPlugins, ...rest } = config;
 
   return {
     site,
-    ...config_rest,
-    options: {
-      markdown: {
-        fragment: true,
-        kramdown: true,
-        gfm: true,
-      },
-      outDir: "docs",
-      hosting: {
-        provider: "GithubPages" as HostingProvider,
-        siteUrl: "https://phothinmg.github.io/",
-        repo: "bagan",
-      },
+    markdown: {
+      gfm: markdown?.gfm ?? true,
+      kramdown: markdown?.kramdown ?? true,
+      fileName: markdown?.fileName ?? "",
+      fragment: true,
     },
-    peisarPlugins: config.peisarPlugins ?? [],
+    peisarPlugins: peisarPlugins ?? [],
+    ...rest,
   };
 }
 
+export type {
+  LayoutFunction,
+  LayoutsContext,
+  LayoutsObject,
+  LayoutsObjects,
+  BaganLiquidPlugin,
+  BaganLiquidPluginFactory,
+  ResolveUrl,
+  DataContext,
+  PageContext,
+  SiteContext,
+  SiteConfig,
+  _SiteConfig,
+};
 export { loadConfig };
