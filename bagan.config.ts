@@ -1,4 +1,4 @@
-import type { SiteConfig } from "./src/types.js";
+import type { SiteConfig } from "./src/config/types.js";
 
 const config: SiteConfig = {
   site: {

@@ -5,7 +5,7 @@ import {
   type AssetsObject,
 } from "@bagandev/bagan_cache";
 import { BaganLiquid } from "./liquid.js";
-import { loadConfig } from "./config.js";
+import { loadConfig } from "./config/config.js";
 import type {
   _SiteConfig,
   DataContext,
@@ -13,7 +13,7 @@ import type {
   PageContext,
   LayoutsObjects,
   LayoutsContext,
-} from "./types.js";
+} from "./config/types.js";
 import { loadAllData } from "./data.js";
 import path from "node:path";
 import { writeFile } from "./helpers.js";
@@ -27,7 +27,7 @@ class Bagan {
   private _pageObjects = {} as PageObject[];
   private _assetsObjects = {} as AssetsObject[];
   private _layoutNames: string[] = [];
-  private _layoutObjects: LayoutsObjects = [];
+  _layoutObjects: LayoutsObjects = [];
 
   private async config() {
     this._config = await loadConfig();
@@ -52,6 +52,7 @@ class Bagan {
     this._liquid = new BaganLiquid(
       this._themeDirs.layoutsDir,
       this._themeDirs.includesDir,
+      (url) => this._cache.resolveUrl(url),
     );
     await this._liquid.init();
     this._layoutNames = this._liquid.layoutNames;
@@ -64,15 +65,6 @@ class Bagan {
     this._dataCtx = await loadAllData(localDataDir, this._themeDirs.dataDir);
   }
   public async init() {
-    // const tasks = [
-    //   this.config,
-    //   () => Promise.resolve(this.cache()),
-    //   this.liquid,
-    //   this.data,
-    // ];
-    // for (const task of tasks) {
-    //   await task();
-    // }
     await this.config();
     this.cache();
     await this.liquid();
@@ -106,8 +98,16 @@ class Bagan {
       }
     }
     for (const assets of this._assetsObjects) {
-      await writeFile(assets.outFilePath, assets.raw);
+      if (assets.fileType === "Image") {
+        const buffer = Buffer.from(assets.raw, "base64");
+        await writeFile(assets.outFilePath, buffer);
+      } else {
+        await writeFile(assets.outFilePath, assets.raw);
+      }
     }
+  }
+  public cacheObject() {
+    return this._cache;
   }
 }
 

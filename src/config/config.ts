@@ -1,8 +1,8 @@
 import path from "node:path";
 import fs from "node:fs";
+import type { HostingProvider } from "@bagandev/bagan_cache";
 import type { SiteConfig, _SiteConfig } from "./types.js";
 import tcolor from "@suseejs/color";
-import type { PeisarOptions } from "@bagandev/bagan_cache";
 
 function loadConfigFile() {
   const files = ["bagan.config.ts", "bagan.config.mjs", "bagan.config.cjs"];
@@ -47,6 +47,11 @@ async function loadConfig(): Promise<_SiteConfig> {
         gfm: true,
       },
       outDir: "docs",
+      hosting: {
+        provider: "GithubPages" as HostingProvider,
+        siteUrl: "https://phothinmg.github.io/",
+        repo: "bagan",
+      },
     },
     peisarPlugins: config.peisarPlugins ?? [],
   };

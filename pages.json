@@ -1,0 +1,26 @@
+[
+  {
+    "layout": "home",
+    "fileName": "index",
+    "slug": "/bagan/",
+    "html": "",
+    "outFilePath": "docs/index.html",
+    "inputFilePath": "/home/ptm/Github/BAGAN/bagan/index.md",
+    "sidebar_widget": "[{\"title\":\"About Me\",\"detail\":\"Welcome! I'm a software engineer exploring cleaner ways to build\\nuser experiences across the web ecosystem.\\n\"}]"
+  },
+  {
+    "layout": "post",
+    "fileName": "build-grid-layout",
+    "slug": "/bagan/posts/build-grid-layout",
+    "html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin\nelementum sem id sodales imperdiet. In at lacus sit amet sem\nconvallis placerat vel ac metus. Mauris rhoncus molestie feugiat.\nSed et elementum justo. Siquidem duo parietes de eodem luto obliti\nsunt.</p>\n<blockquote>\n<p>&quot;Grid layout is the most powerful layout system available in CSS. It is a 2-dimensional system, meaning it can handle both columns and rows, unlike Flexbox which is largely a 1-dimensional system.&quot; <cite>— CSS Architecture Guide</cite></p>\n</blockquote>\n<h3>Why Move Away From Frameworks?</h3>\n<p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices\nposuere cubilia curae; Aliquam at erat lectus. Mauris non erat\nconvallis, laoreet felis eget, aliquet arcu. Phasellus quis\nelementum leo. Proin nec scelerisque ex, quis elementum nibh.</p>\n<p>When you strip away the heavy external UI dependencies, your\napplication rendering speeds skyrocket. The native browser\nimplementation of standard CSS grids is highly optimized.</p>\n",
+    "outFilePath": "docs/posts/build-grid-layout/index.html",
+    "inputFilePath": "/home/ptm/Github/BAGAN/bagan/posts/build-grid-layout.md",
+    "title": "Building a CSS Grid Layout from Scratch",
+    "tags": [
+      "Web Development",
+      "Javascript",
+      "CSS"
+    ],
+    "published_at": "2026-11-06"
+  }
+]

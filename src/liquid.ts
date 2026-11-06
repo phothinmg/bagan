@@ -6,8 +6,10 @@ import type {
   LayoutsObjects,
   LayoutFunction,
   LayoutsContext,
-} from "./types.js";
+} from "./config/types.js";
 import { frontmatter } from "@bagandev/bagan_cache";
+
+type ResolveUrl = (path: string) => string;
 
 const resolveLiquidLayout = (input: string) => {
   const fmt = frontmatter(input);
@@ -19,6 +21,22 @@ const resolveLiquidLayout = (input: string) => {
   }
   return result;
 };
+// Liquid Js Plugins
+function relativeUrl(fn: ResolveUrl) {
+  return function (this: Liquid) {
+    this.registerFilter("relativeUrl", (x) => fn(x));
+  };
+}
+
+function parseJson(this: Liquid) {
+  this.registerFilter("parse_json", (value: unknown) => {
+    if (typeof value !== "string") {
+      return value;
+    }
+
+    return JSON.parse(value);
+  });
+}
 
 class BaganLiquid {
   private _liquidOptions: LiquidOptions;
@@ -27,7 +45,7 @@ class BaganLiquid {
   private _layoutNames: string[];
   private _layoutObjects: LayoutsObjects;
 
-  constructor(layoutsDir: string, includesDir: string) {
+  constructor(layoutsDir: string, includesDir: string, urlFn: ResolveUrl) {
     this._liquidOptions = {
       extname: ".html",
       cache: true,
@@ -41,6 +59,8 @@ class BaganLiquid {
     this._engine = new Liquid(this._liquidOptions);
     this._layoutNames = [];
     this._layoutObjects = [];
+    this._engine.plugin(relativeUrl(urlFn));
+    this._engine.plugin(parseJson);
   }
   private parseLiquid(input: string): LayoutFunction {
     return async (ctx: LayoutsContext) => {

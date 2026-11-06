@@ -2,8 +2,10 @@
 layout: post
 title: Building a CSS Grid Layout from Scratch
 published_at: 2026-11-06
-categories:
+tags:
   - Web Development
+  - Javascript
+  - CSS
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
