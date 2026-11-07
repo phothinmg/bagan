@@ -26,3 +26,20 @@ elementum leo. Proin nec scelerisque ex, quis elementum nibh.
 When you strip away the heavy external UI dependencies, your
 application rendering speeds skyrocket. The native browser
 implementation of standard CSS grids is highly optimized.
+
+### Hello
+
+> [!NOTE]
+> Useful information that users should know, even when skimming content.
+
+> [!TIP]
+> Helpful advice for doing things better.
+
+> [!IMPORTANT]
+> Key information users need to know to succeed.
+
+> [!WARNING]
+> Urgent info that needs immediate user attention.
+
+> [!CAUTION]
+> Negative potential consequences of an action.

@@ -1,8 +1,8 @@
 import fs from "node:fs";
 import path from "node:path";
-import tcolor from "@suseejs/color";
 import { yamlParser } from "@bagandev/bagan_cache";
-import type { DataContext } from "./config/types.js";
+import tcolor from "@suseejs/color";
+import type { DataContext } from "./config/index.js";
 
 function isDataContext(value: unknown): value is DataContext {
   return typeof value === "object" && value !== null && !Array.isArray(value);
@@ -138,4 +138,4 @@ async function loadAllData(
   return { ...local?.data, ...theme?.data } as DataContext;
 }
 
-export { loadAllData, loadData };
+export { loadAllData };

@@ -1,0 +1,8 @@
+---
+layout: home
+sidebar_widget:
+  - title: About Me
+    detail: |
+      Welcome! I'm a software engineer exploring cleaner ways to build
+      user experiences across the web ecosystem.
+---

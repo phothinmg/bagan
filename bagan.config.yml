@@ -1,0 +1,11 @@
+title: Bagen Static Site
+nav:
+  - link: /
+    text: Home
+  - link: /about
+    text: About
+plugins:
+  - bagan-alerts
+hosting_provider: GithubPages
+repo: bagan
+out_dir: docs

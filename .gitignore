@@ -1,11 +1,9 @@
 node_modules
 a.ts
-_data
 contents
 public
-index.md
 .notes.txt
 .bagan_cache
 .bagan
-bagan_themes
+.notes
 docs
