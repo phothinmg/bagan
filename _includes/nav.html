@@ -1,7 +1,7 @@
 <nav class="blog-nav">
   <div class="container">
-    {% if site.nav %}
-      {% for nav in site.nav %}
+    {% if config.nav %}
+      {% for nav in config.nav %}
         <a href="{{ nav.link | relativeUrl }}">{{ nav.text }}</a>
       {% endfor %}
     {% endif %}
