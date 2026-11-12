@@ -1,9 +1,19 @@
-import type { SiteConfig } from "./src/core/config/types.js";
+import { baganMinima } from "@bagandev/minima";
 
-const config: SiteConfig = {
+/** @type {import("./src/index").BaganConfig} */
+const config = {
   site: {
     title: "Bagan Minima Site",
     tagline: "Thoughts on code, design, and simplicity.",
+  },
+  hostingProvider: "GithubPages",
+  baseUrl: "bagan",
+  theme: {
+    type: "module",
+    theme: baganMinima,
+  },
+  outDir: "docs",
+  bagan_minima: {
     nav: [
       {
         link: "/",
@@ -14,11 +24,6 @@ const config: SiteConfig = {
         text: "About",
       },
     ],
-  },
-  outDir: "docs",
-  hosting: {
-    provider: "GithubPages",
-    repo: "bagan",
   },
 };
 

@@ -1,38 +1,38 @@
 {
   "rootDir": null,
   "assetsDir": null,
-  "dataDir": null,
-  "baganCacheOpts": {
+  "cacheOpts": {
+    "themeLayoutsDir": "_layouts",
+    "themeIncludesDir": "_includes",
+    "themeDataDir": "_data",
     "markdown": {
       "fragment": true,
       "gfm": true,
       "kramdown": true
     },
     "hosting": {
+      "provider": "GithubPages",
       "repo": "bagan"
-    }
+    },
+    "archive": {}
   },
   "siteCtx": {
-    "title": "Bagen Static Site",
-    "description": null,
-    "favicon": null,
-    "keywords": null,
-    "author": null,
-    "tagline": null
+    "title": "Bagan Minima Site",
+    "tagline": "Thoughts on code, design, and simplicity."
   },
-  "plugins": [
-    "bagan-alerts"
-  ],
   "configCtx": {
-    "nav": [
-      {
-        "link": "/",
-        "text": "Home"
-      },
-      {
-        "link": "/about",
-        "text": "About"
-      }
-    ]
-  }
+    "bagan_minima": {
+      "nav": [
+        {
+          "link": "/",
+          "text": "Home"
+        },
+        {
+          "link": "/about",
+          "text": "About"
+        }
+      ]
+    }
+  },
+  "plugins": []
 }

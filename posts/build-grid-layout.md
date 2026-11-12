@@ -27,7 +27,7 @@ When you strip away the heavy external UI dependencies, your
 application rendering speeds skyrocket. The native browser
 implementation of standard CSS grids is highly optimized.
 
-### Hello
+### Bq
 
 > [!NOTE]
 > Useful information that users should know, even when skimming content.

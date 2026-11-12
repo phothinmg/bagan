@@ -5,5 +5,13 @@
 	"[liquid]": {
 		"editor.defaultFormatter": "sissel.shopify-liquid",
 		"editor.formatOnSave": true
-	}
+	},
+	"cSpell.words": [
+		"Bagan",
+		"bagandev",
+		"liquidjs",
+		"susee",
+		"suseejs",
+		"tcolor"
+	]
 }
